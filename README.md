@@ -2,6 +2,8 @@
 
 Site institucional da **Lua Diesel Comércio de Peças para Veículos LTDA**, distribuidora de peças para bombas injetoras e bicos injetores diesel em Ribeirão Preto – SP.
 
+**Site no ar:** https://azamba.github.io/luadiesel/ (GitHub Pages, publicado a partir da branch `main`).
+
 Página única em HTML, CSS e JavaScript puros, sem build nem dependências.
 
 ## Seções
