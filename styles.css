@@ -357,3 +357,90 @@ p { text-wrap: pretty; }
   .contact-list div { grid-template-columns: 1fr; gap: 2px; }
   .contact-send .button { width: 100%; }
 }
+
+/* ------------------------------------- cinema: animações ligadas à rolagem
+   Navegadores sem animation-timeline ficam com as revelações acima. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* seções abrem como uma tela de cinema: cantos arredondados e laterais recolhidas viram tela cheia */
+    main > section:not(.hero) {
+      animation: tela linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    @keyframes tela {
+      from { clip-path: inset(0 6% round 32px); }
+      to { clip-path: inset(0 0 round 0); }
+    }
+
+    /* início: ao rolar, o conteúdo se afasta e escurece */
+    .hero-in {
+      animation: afasta linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 80vh;
+    }
+    @keyframes afasta {
+      to { opacity: 0.15; transform: translateY(18vh) scale(0.92); filter: blur(2px); }
+    }
+    .plate-head img {
+      animation: gira-logo linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 80vh;
+    }
+    @keyframes gira-logo { to { transform: rotate(-12deg) scale(1.15); } }
+
+    /* títulos com parallax em relação ao texto */
+    .head {
+      animation: paralaxe linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+    @keyframes paralaxe { from { transform: translateY(48px); } to { transform: translateY(-48px); } }
+
+    /* textos de introdução: surgem com desfoque conforme entram */
+    .lead, .about-text p, .contact-tip {
+      animation: foco linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 35%;
+    }
+    @keyframes foco { from { opacity: 0; filter: blur(8px); translate: 0 24px; } to { opacity: 1; filter: none; translate: 0 0; } }
+
+    /* produtos: cada peça desliza da direita conforme aparece */
+    .parts li {
+      animation: desliza linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 90%;
+    }
+    @keyframes desliza { from { opacity: 0; translate: 60px 0; } to { opacity: 1; translate: 0 0; } }
+
+    /* marcas viram cartões que tombam para frente */
+    .brand-grid { perspective: 900px; }
+    .brand-grid li {
+      animation: tomba linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+    @keyframes tomba { from { opacity: 0; transform: rotateX(-70deg) translateY(30px); } to { opacity: 1; transform: none; } }
+
+    /* bancada, atuação, fatos da empresa e contato sobem em camadas */
+    .bench-grid > div, .reach-grid > div, .about-facts > div, .contact-list > div {
+      animation: sobe linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes sobe { from { opacity: 0; translate: 0 80px; } to { opacity: 1; translate: 0 0; } }
+
+    /* rodapé: o logo cresce ao chegar no fim */
+    .footer-logo {
+      animation: chega linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+    @keyframes chega { from { opacity: 0; transform: scale(0.7); } to { opacity: 1; transform: none; } }
+
+    /* desliga as revelações por classe nos elementos que agora seguem a rolagem */
+    .js [data-anim="stagger"] > *, .js [data-anim="rise"] > * { opacity: 1; transform: none; transition: none; }
+    .js .head .w > span { transform: none; transition: none; }
+  }
+}
