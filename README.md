@@ -14,7 +14,7 @@ Página única em HTML, CSS e JavaScript puros, sem build nem dependências.
 - **Para a bancada:** cubas ultrassônicas, ferramentas e kits de reparo
 - **Atuação:** para quem a empresa trabalha
 - **WhatsApp:** formulário que abre a conversa com a mensagem já escrita
-- **Contato:** telefone, WhatsApp, Instagram, endereço, horário e mapa
+- **Contato:** telefone, WhatsApp, Instagram e horário
 
 ## Estrutura
 
@@ -46,7 +46,7 @@ O `python3 -m http.server` serve a pasta inteira, inclusive `.git/`. Para expor 
 
 ## WhatsApp
 
-O número usado no formulário e nos links é `5516992318202`, definido em `main.js` e nos links `wa.me` do `index.html`.
+O número usado nos links é `5516997056977`, definido nos links `tel:` e `wa.me` do `index.html`.
 
 ## Animações
 

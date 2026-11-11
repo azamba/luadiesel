@@ -211,16 +211,14 @@ p { text-wrap: pretty; }
 
 /* ----------------------------------------------------------- contato */
 .contact { padding: var(--section) 0; }
-.contact-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: stretch; }
+.contact-in { display: grid; grid-template-columns: minmax(0, 1fr); }
+.contact-text { max-width: 640px; }
 .contact-list { margin-top: 36px; display: grid; }
 .contact-list div { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.1); }
 .contact-list dt { color: var(--on-dark-soft); }
 .contact-list dd { font-weight: 600; }
 .contact-list a { text-underline-offset: 0.25em; text-decoration-color: var(--purple); text-decoration-thickness: 2px; }
 .contact-list a:hover { text-decoration-color: currentColor; }
-.contact-note { margin: 12px 0 28px; font-size: var(--t-small); color: var(--on-dark-soft); }
-.map { min-height: 440px; border-radius: 10px; overflow: hidden; background: var(--plum); }
-.map iframe { width: 100%; height: 100%; min-height: 440px; border: 0; filter: invert(92%) hue-rotate(200deg) saturate(0.7) brightness(0.95); }
 
 /* ------------------------------------------------------------ rodapé */
 .footer { padding-bottom: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
@@ -234,37 +232,27 @@ p { text-wrap: pretty; }
 
 /* ---------------------------------------------------------- whatsapp */
 .wa { background: var(--field); padding: var(--section) 0; }
-.wa-in { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.wa-in { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(40px, 6vw, 96px); align-items: end; }
 .wa-text .lead { margin-top: 24px; max-width: 30em; }
 .wa-tip { margin-top: 20px; color: var(--on-dark-soft); max-width: 32em; }
-.wa-direct { margin-top: 32px; color: var(--on-dark-soft); }
-.wa-direct .text-link { color: var(--on-dark); }
-.wa-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.field { display: grid; gap: 8px; }
-.field-full { grid-column: 1 / -1; }
-.field label { font-weight: 600; font-size: 0.9375rem; }
-.field label span { font-weight: 400; color: var(--on-dark-soft); }
-.field input, .field select, .field textarea {
-  width: 100%; min-height: 52px; padding: 12px 16px;
-  background: var(--night); color: var(--on-dark);
-  border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius);
-  transition: border-color 180ms ease, box-shadow 180ms ease;
-}
-.field textarea { resize: vertical; min-height: 140px; line-height: 1.5; }
-.field select { appearance: none; padding-right: 44px; cursor: pointer;
-  background-image: linear-gradient(45deg, transparent 50%, var(--lilac) 50%), linear-gradient(135deg, var(--lilac) 50%, transparent 50%);
-  background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%; background-size: 6px 6px; background-repeat: no-repeat; }
-.field ::placeholder { color: var(--on-dark-soft); opacity: 0.6; }
-.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(255, 255, 255, 0.3); }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--purple-hi); box-shadow: 0 0 0 3px rgba(138, 75, 234, 0.35); }
-.field [aria-invalid="true"] { border-color: #f08a8a; }
-.wa-send { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; margin-top: 4px; }
+.wa-send { display: flex; }
 .wa-send .button::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: #25d366; box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.25); }
-.wa-error { color: #f6b0b0; font-size: var(--t-small); }
 
 /* ------------------------------------------------------------ animação */
 .plate { transform-style: preserve-3d; will-change: transform; }
 .hero-in { perspective: 1200px; }
+
+/* ------------------------------------------------- whatsapp flutuante */
+.wa-float {
+  position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); z-index: 40;
+  display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%;
+  background: #25d366; color: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 200ms var(--ease), box-shadow 200ms ease;
+}
+.wa-float:hover { transform: scale(1.08); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45); }
+.wa-float:active { transform: scale(0.96); }
+.wa-float:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: no-preference) {
   /* revelações ao rolar */
@@ -356,7 +344,5 @@ p { text-wrap: pretty; }
   .reach-grid, .bench-grid { grid-template-columns: 1fr; }
   .about-facts { grid-template-columns: 1fr; }
   .contact-list div { grid-template-columns: 1fr; gap: 2px; }
-  .wa-form { grid-template-columns: 1fr; }
   .wa-send .button { width: 100%; }
-  .map, .map iframe { min-height: 320px; }
 }

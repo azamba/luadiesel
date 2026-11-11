@@ -125,26 +125,3 @@ document.querySelectorAll('.head').forEach((el) => {
   }, { rootMargin: '-40% 0px -40% 0px' });
   lines.forEach((l) => focus.observe(l));
 })();
-
-// WhatsApp: monta a mensagem do formulário e abre a conversa
-(() => {
-  const form = document.getElementById('wa-form');
-  if (!form) return;
-  const error = document.getElementById('wa-error');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = form.elements;
-    const nome = f.nome.value.trim(), cidade = f.cidade.value.trim(), msg = f.mensagem.value.trim();
-    const missing = [[f.nome, nome], [f.mensagem, msg]].filter(([el, v]) => { el.setAttribute('aria-invalid', !v); return !v; });
-    error.hidden = !missing.length;
-    if (missing.length) { missing[0][0].focus(); return; }
-    const text = [
-      `Olá, Lua Diesel! Meu nome é ${nome}${cidade ? `, de ${cidade}` : ''}.`,
-      `Assunto: ${f.assunto.value}`,
-      '',
-      msg,
-    ].join('\n');
-    window.open(`https://wa.me/5516992318202?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-  });
-  form.addEventListener('input', (e) => { if (e.target.value.trim()) e.target.removeAttribute('aria-invalid'); });
-})();
