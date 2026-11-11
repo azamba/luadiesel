@@ -245,6 +245,9 @@ p { text-wrap: pretty; }
 .footer nav a, .footer address a { text-decoration: none; color: var(--on-dark-soft); transition: color 160ms ease; }
 .footer nav a:hover, .footer address a:hover { color: var(--white); }
 .footer address { font-style: normal; display: grid; gap: 4px; text-align: right; color: var(--on-dark-soft); font-size: 0.9375rem; }
+.ig-link { display: inline-flex; align-items: center; gap: 8px; }
+.ig-icon { flex: none; }
+.footer address .ig-link { justify-self: end; }
 .legal { margin-top: 40px; padding-top: 20px; font-size: var(--t-small); color: var(--on-dark-soft); }
 
 /* ------------------------------------------------- whatsapp flutuante */
@@ -320,6 +323,7 @@ p { text-wrap: pretty; }
   .footer-in { grid-template-columns: 1fr; gap: 28px; }
   .footer nav { justify-content: flex-start; }
   .footer address { text-align: left; }
+  .footer address .ig-link { justify-self: start; }
 }
 
 /* ------------------------------------------------------------ celular */

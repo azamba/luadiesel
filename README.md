@@ -64,3 +64,9 @@ O número usado nos links é `5516997056977`, definido nos links `wa.me` do `ind
 ## Animações
 
 Quem ativa a opção de reduzir movimento no sistema vê a página pronta, sem animações.
+
+## Direitos
+
+© 2026 Lua Diesel Comércio de Peças para Veículos LTDA. Todos os direitos reservados.
+
+O código está público apenas para publicar o site pelo GitHub Pages. Textos, imagens, logotipo e layout pertencem à Lua Diesel e não podem ser copiados, reproduzidos ou usados em outros sites sem autorização por escrito. As marcas de fabricantes citadas no site pertencem aos seus respectivos donos.
