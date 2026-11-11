@@ -364,6 +364,8 @@ p { text-wrap: pretty; }
 @media (prefers-reduced-motion: no-preference) {
   @supports (animation-timeline: view()) {
     /* seções abrem como uma tela de cinema: cantos arredondados e laterais recolhidas viram tela cheia */
+    /* o que entra deslizando de lado não pode criar rolagem horizontal */
+    main > section { overflow-x: clip; }
     main > section:not(.hero) {
       animation: tela linear both;
       animation-timeline: view();
