@@ -11,6 +11,7 @@ Página única em HTML, CSS e JavaScript puros, sem build nem dependências.
 - **Início:** título e a plaqueta da empresa
 - **A empresa:** história e dados da empresa
 - **Produtos:** bicos injetores, bombas injetoras e common rail
+- **Marcas:** as marcas com que a empresa trabalha
 - **Para a bancada:** cubas ultrassônicas, ferramentas e kits de reparo
 - **Atuação:** para quem a empresa trabalha
 - **Fale conosco:** botão do WhatsApp com pedido de orçamento já escrito, Instagram e horário
@@ -46,9 +47,19 @@ ngrok http 8080
 O ngrok mostra um endereço público temporário. Ele deixa de funcionar quando o ngrok é encerrado.
 O `python3 -m http.server` serve a pasta inteira, inclusive `.git/`. Para expor só o site, sirva uma pasta que contenha apenas `index.html`, `main.js`, `styles.css`, `sitemap.xml` e `assets/`.
 
+## Marcas
+
+A lista fica em `<ul class="brand-grid">` no `index.html` e mostra o nome de cada marca. Para usar o logo, salve o arquivo em `assets/marcas/` (de preferência SVG ou PNG com fundo transparente) e troque o nome pela imagem:
+
+```html
+<li><img src="assets/marcas/bosch.svg" alt="Bosch" loading="lazy"></li>
+```
+
+Ao incluir ou tirar uma marca, atualize também a lista `brand` do bloco `application/ld+json`.
+
 ## WhatsApp
 
-O número usado nos links é `5516997056977`, definido nos links `tel:` e `wa.me` do `index.html`.
+O número usado nos links é `5516997056977`, definido nos links `wa.me` do `index.html`.
 
 ## Animações
 

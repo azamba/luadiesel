@@ -155,6 +155,20 @@ p { text-wrap: pretty; }
 
 /* ----------------------------------------------------------- passos */
 
+/* ------------------------------------------------------------ marcas */
+.brands { background: var(--lavender); color: var(--ink); padding: var(--section) 0; }
+.brand-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; list-style: none; }
+.brand-grid li {
+  display: grid; place-items: center; min-height: 104px; padding: 20px 16px; text-align: center;
+  background: var(--white); border: 1px solid var(--lavender-2); border-radius: 10px;
+  font-stretch: var(--wide); font-weight: 800; font-size: 1.0625rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink);
+  transition: border-color 200ms ease, box-shadow 200ms ease, translate 300ms var(--ease);
+}
+.brand-grid li:hover { border-color: var(--purple); box-shadow: 0 10px 24px rgba(27, 16, 48, 0.08); translate: 0 -3px; }
+.brand-grid img { max-width: 140px; max-height: 56px; width: auto; height: auto; object-fit: contain; }
+.brand-note { margin-top: 32px; color: var(--ink-soft); }
+.brand-note .text-link { color: var(--ink); }
+
 /* ----------------------------------------------------------- bancada */
 .bench { background: var(--field); padding: var(--section) 0; }
 .bench-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
@@ -310,6 +324,8 @@ p { text-wrap: pretty; }
 
 /* ------------------------------------------------------------ celular */
 @media (max-width: 760px) {
+  .brand-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+  .brand-grid li { min-height: 84px; font-size: 0.9375rem; }
   :root { --bar-h: 80px; }
   .bar-in { gap: 12px; }
   .bar-logo img { height: 64px; }
