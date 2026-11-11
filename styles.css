@@ -376,19 +376,27 @@ p { text-wrap: pretty; }
       to { clip-path: inset(0 0 round 0); }
     }
 
-    /* início: ao rolar, o conteúdo se afasta e escurece */
-    .hero-in {
+    /* início: texto e plaqueta se afastam e escurecem só quando cada um sai pelo topo da tela.
+       Usa filter/scale para não brigar com a entrada (opacity/translate) nem com a inclinação (transform).
+       overflow: clip corta igual ao hidden, mas não vira área de rolagem (senão o view() segue o .hero e não a página). */
+    .hero { overflow: clip; }
+    .hero-text {
       animation: afasta linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 80vh;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
+    }
+    .js .plate.rise {
+      animation: rise 900ms var(--ease) 380ms forwards, afasta linear both;
+      animation-timeline: auto, view();
+      animation-range: normal, exit 0% exit 100%;
     }
     @keyframes afasta {
-      to { opacity: 0.15; transform: translateY(18vh) scale(0.92); filter: blur(2px); }
+      to { filter: opacity(0.15) blur(2px); scale: 0.92; }
     }
     .plate-head img {
       animation: gira-logo linear both;
-      animation-timeline: scroll(root);
-      animation-range: 0 80vh;
+      animation-timeline: view();
+      animation-range: exit 0% exit 100%;
     }
     @keyframes gira-logo { to { transform: rotate(-12deg) scale(1.15); } }
 
