@@ -20,9 +20,12 @@ Página única em HTML, CSS e JavaScript puros, sem build nem dependências.
 ```
 index.html   conteúdo da página
 styles.css   estilos, layout responsivo e animações
-main.js      menu, animações ao rolar e formulário do WhatsApp
-assets/      logotipos
+main.js      menu e animações ao rolar
+sitemap.xml  mapa do site para o Google Search Console
+assets/      logotipos, ícones e imagem de compartilhamento
 ```
+
+Os dados da empresa para o Google (horário, WhatsApp, Instagram) ficam no bloco `application/ld+json` do `<head>` do `index.html`. Ao mudar essas informações na página, atualize também esse bloco.
 
 ## Rodar localmente
 
@@ -41,7 +44,7 @@ ngrok http 8080
 ```
 
 O ngrok mostra um endereço público temporário. Ele deixa de funcionar quando o ngrok é encerrado.
-O `python3 -m http.server` serve a pasta inteira, inclusive `.git/`. Para expor só o site, sirva uma pasta que contenha apenas `index.html`, `main.js`, `styles.css` e `assets/`.
+O `python3 -m http.server` serve a pasta inteira, inclusive `.git/`. Para expor só o site, sirva uma pasta que contenha apenas `index.html`, `main.js`, `styles.css`, `sitemap.xml` e `assets/`.
 
 ## WhatsApp
 
