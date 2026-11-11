@@ -13,8 +13,7 @@ Página única em HTML, CSS e JavaScript puros, sem build nem dependências.
 - **Produtos:** bicos injetores, bombas injetoras e common rail
 - **Para a bancada:** cubas ultrassônicas, ferramentas e kits de reparo
 - **Atuação:** para quem a empresa trabalha
-- **WhatsApp:** formulário que abre a conversa com a mensagem já escrita
-- **Contato:** telefone, WhatsApp, Instagram e horário
+- **Fale conosco:** botão do WhatsApp com pedido de orçamento já escrito, Instagram e horário
 
 ## Estrutura
 
